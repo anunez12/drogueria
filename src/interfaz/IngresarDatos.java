@@ -14,8 +14,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
-
+    
 /**
  *
  * @author SP
@@ -27,11 +28,18 @@ public class IngresarDatos extends javax.swing.JDialog {
      */
     String ruta;
     ObjectOutputStream salida;
-    ArrayList<Drogueria> Drogueria;
+    ArrayList<Drogueria> Drogueria; 
+    int aux=0;
 
     public IngresarDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+        initComponents(); 
+        
+        JButton botonesH[]={cmdBuscar, cmdLimpiar};
+        JButton botonesD[]={cmdGuardar,cmdEliminar}; 
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
 
         ruta = "src/serializar/serializacion.txt";
         try {
@@ -66,6 +74,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
         cmdLimpiar = new javax.swing.JButton();
+        cmdBuscar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrarDatos = new javax.swing.JTable();
@@ -133,7 +142,7 @@ public class IngresarDatos extends javax.swing.JDialog {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 34, -1, -1));
+        jPanel3.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         cmdEliminar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         cmdEliminar.setText("Eliminar");
@@ -152,7 +161,16 @@ public class IngresarDatos extends javax.swing.JDialog {
                 cmdLimpiarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
+        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, -1));
+
+        cmdBuscar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        cmdBuscar.setText("Buscar");
+        cmdBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBuscarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, 140));
 
@@ -263,7 +281,7 @@ public class IngresarDatos extends javax.swing.JDialog {
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
         int dato, mostrar;
 
-        mostrar = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar esta llamada?", "Eliminar", JOptionPane.YES_NO_OPTION);
+        mostrar = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar esta compra?", "Eliminar", JOptionPane.YES_NO_OPTION);
 
         ArrayList<Drogueria> llamadas = Helper.traerDatos(ruta);
 
@@ -300,6 +318,28 @@ public class IngresarDatos extends javax.swing.JDialog {
         txtCantidad.setText(dondevirgilio.getCantidadmedicamento());
         txtPrecio.setText(dondevirgilio.getPrecio());
     }//GEN-LAST:event_tblMostrarDatosMouseClicked
+
+    private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
+        String precio;
+        precio = txtPrecio.getText();
+        Drogueria p;
+        if (Helper.buscarPreciomedicamento(precio, ruta)) {
+            p = Helper.traerPreciomedicamento(precio, ruta);
+            txtMedicamento.setText(p.getMedicamento());
+            txtCantidad.setText(p.getCantidadmedicamento());
+            
+            aux = 1;
+        } else {
+            txtMedicamento.requestFocusInWindow();
+            aux = 0;
+        }
+        JButton botonesH[]={cmdGuardar,cmdLimpiar, cmdEliminar};
+        JButton botonesD[]={cmdBuscar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+
+    }//GEN-LAST:event_cmdBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,6 +384,7 @@ public class IngresarDatos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdGuardar;
     private javax.swing.JButton cmdLimpiar;

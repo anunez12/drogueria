@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import clases.Helper;
+
 /**
  *
  * @author SP
@@ -14,8 +16,11 @@ public class Drogueria extends javax.swing.JFrame {
     /**
      * Creates new form Drogueria
      */
+    String ruta;
+
     public Drogueria() {
-        initComponents();
+        initComponents();   
+        ruta = "src/serializar/serializacion.txt";
     }
 
     /**
@@ -27,12 +32,29 @@ public class Drogueria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnIngresarDatos = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnSalir = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenu2 = new javax.swing.JMenu();
+        mnListadoCompleto = new javax.swing.JCheckBoxMenuItem();
+        mnCantidadDeMedicamentos = new javax.swing.JCheckBoxMenuItem();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DROGUERIA");
@@ -59,6 +81,7 @@ public class Drogueria extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnIngresarDatos);
+        jMenu1.add(jSeparator1);
 
         mnSalir.setFont(new java.awt.Font("Segoe UI Light", 2, 18)); // NOI18N
         mnSalir.setText("Salir");
@@ -68,6 +91,34 @@ public class Drogueria extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mnSalir);
+        jMenu1.add(jSeparator2);
+
+        jMenu2.setForeground(new java.awt.Color(204, 0, 204));
+        jMenu2.setText("Reportes");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+
+        mnListadoCompleto.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        mnListadoCompleto.setSelected(true);
+        mnListadoCompleto.setText("Listado Completo");
+        mnListadoCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnListadoCompletoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnListadoCompleto);
+
+        mnCantidadDeMedicamentos.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        mnCantidadDeMedicamentos.setForeground(new java.awt.Color(204, 102, 255));
+        mnCantidadDeMedicamentos.setSelected(true);
+        mnCantidadDeMedicamentos.setText("Cantidad de medicamentos");
+        mnCantidadDeMedicamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnCantidadDeMedicamentosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnCantidadDeMedicamentos);
+
+        jMenu1.add(jMenu2);
 
         jMenuBar1.add(jMenu1);
 
@@ -88,13 +139,24 @@ public class Drogueria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSalirActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_mnSalirActionPerformed
 
     private void mnIngresarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIngresarDatosActionPerformed
-       IngresarDatos Drogueria= new IngresarDatos(this,true); 
-       Drogueria.setVisible(true);    
+        IngresarDatos Drogueria = new IngresarDatos(this, true);
+        Drogueria.setVisible(true);
     }//GEN-LAST:event_mnIngresarDatosActionPerformed
+
+    private void mnListadoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListadoCompletoActionPerformed
+        ListadoCompleto lc = new ListadoCompleto(this, true);
+        lc.setVisible(true);
+    }//GEN-LAST:event_mnListadoCompletoActionPerformed
+
+    private void mnCantidadDeMedicamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCantidadDeMedicamentosActionPerformed
+        int cont;
+        cont = Helper.traerDatos(ruta).size();
+        Helper.mensaje(this, "La cantidad de mediacamentos es: " + cont, 1);
+    }//GEN-LAST:event_mnCantidadDeMedicamentosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,11 +194,17 @@ public class Drogueria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JCheckBoxMenuItem mnCantidadDeMedicamentos;
     private javax.swing.JMenuItem mnIngresarDatos;
+    private javax.swing.JCheckBoxMenuItem mnListadoCompleto;
     private javax.swing.JMenuItem mnSalir;
     // End of variables declaration//GEN-END:variables
 }

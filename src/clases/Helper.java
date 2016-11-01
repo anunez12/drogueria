@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author SP                
+ * @author SP
  */
 public class Helper {
 
@@ -116,8 +116,8 @@ public class Helper {
     }
 
     public static void volcadoDrogueria(ObjectOutputStream salida, ArrayList personas) {
-        for (int i = 0; i < personas.size(); i++) { 
-            
+        for (int i = 0; i < personas.size(); i++) {
+
             try {
                 salida.writeObject(personas.get(i));
             } catch (IOException ex) {
@@ -125,5 +125,27 @@ public class Helper {
             }
 
         }
+
+    }
+
+    public static boolean buscarPreciomedicamento(String precio, String ruta) {
+        ArrayList<Drogueria> Drogueria = traerDatos(ruta);
+        for (int i = 0; i < Drogueria.size(); i++) {
+            if (Drogueria.get(i).getPrecio().equals(precio)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Drogueria traerPreciomedicamento(String precio, String ruta) {
+        ArrayList<Drogueria> Drogueria = traerDatos(ruta);
+        for (int i = 0; i < Drogueria.size(); i++) {
+            if (Drogueria.get(i).getPrecio().equals(precio)) {
+                return Drogueria.get(i);
+            }
+
+        }
+        return null;
     }
 }
