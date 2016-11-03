@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;
+package interfaz;                         
 
-import clases.Helper;
+import clases.Helper;   
 
 /**
  *
@@ -17,7 +17,7 @@ public class Administrador extends javax.swing.JFrame {
      * Creates new form Administrador
      */
     public Administrador() {
-        initComponents();    
+        initComponents();
     }
 
     /**
@@ -41,6 +41,12 @@ public class Administrador extends javax.swing.JFrame {
         setTitle("Administrador");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, -1));
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, -1));
 
@@ -95,6 +101,14 @@ public class Administrador extends javax.swing.JFrame {
             Principal.setVisible(true);
         }
     }//GEN-LAST:event_cmdDrogueriaActionPerformed
+
+    private void txtUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isSpaceChar(c)) {
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUsuarioKeyTyped
 
     /**
      * @param args the command line arguments

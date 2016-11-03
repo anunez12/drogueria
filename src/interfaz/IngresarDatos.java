@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-    
+
 /**
  *
  * @author SP
@@ -28,16 +28,16 @@ public class IngresarDatos extends javax.swing.JDialog {
      */
     String ruta;
     ObjectOutputStream salida;
-    ArrayList<Drogueria> Drogueria; 
-    int aux=0;
+    ArrayList<Drogueria> Drogueria;
+    int aux = 0;
 
     public IngresarDatos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents(); 
-        
-        JButton botonesH[]={cmdBuscar, cmdLimpiar};
-        JButton botonesD[]={cmdGuardar,cmdEliminar}; 
-        
+        initComponents();
+
+        JButton botonesH[] = {cmdBuscar, cmdConservar};
+        JButton botonesD[] = {cmdGuardar, cmdEliminar};
+
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
 
@@ -73,7 +73,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         jPanel3 = new javax.swing.JPanel();
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
-        cmdLimpiar = new javax.swing.JButton();
+        cmdConservar = new javax.swing.JButton();
         cmdBuscar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -153,15 +153,15 @@ public class IngresarDatos extends javax.swing.JDialog {
         });
         jPanel3.add(cmdEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 80, 100, 30));
 
-        cmdLimpiar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        cmdLimpiar.setForeground(new java.awt.Color(153, 153, 255));
-        cmdLimpiar.setText("Limpiar");
-        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        cmdConservar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        cmdConservar.setForeground(new java.awt.Color(153, 153, 255));
+        cmdConservar.setText("Conservar");
+        cmdConservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdLimpiarActionPerformed(evt);
+                cmdConservarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 100, -1));
+        jPanel3.add(cmdConservar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 120, -1));
 
         cmdBuscar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         cmdBuscar.setText("Buscar");
@@ -170,7 +170,7 @@ public class IngresarDatos extends javax.swing.JDialog {
                 cmdBuscarActionPerformed(evt);
             }
         });
-        jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, -1));
+        jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, 140));
 
@@ -240,8 +240,6 @@ public class IngresarDatos extends javax.swing.JDialog {
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        String medicamento, cantidadmedicamento, preciomedicamento;
-
         if (txtMedicamento.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Ingrese medicamento a comprar", 1);
             txtMedicamento.requestFocusInWindow();
@@ -252,56 +250,77 @@ public class IngresarDatos extends javax.swing.JDialog {
             Helper.mensaje(this, "Ingrese precio del medicamento", 1);
             txtPrecio.requestFocusInWindow();
         } else {
-            medicamento = txtMedicamento.getText();
-            cantidadmedicamento = txtCantidad.getText();
-            preciomedicamento = txtPrecio.getText();
-
-            Drogueria dondevirgilio = new Drogueria(medicamento, cantidadmedicamento, preciomedicamento);
             try {
-                dondevirgilio.guardar(salida);
-            } catch (IOException ex) {
-                Logger.getLogger(Drogueria.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            Helper.llenarTabla(tblMostrarDatos, ruta);
+                String medicamento, cantidadmedicamento, Precio;
+                medicamento = txtMedicamento.getText();
+                cantidadmedicamento = txtCantidad.getText();
+                Precio = txtPrecio.getText();
 
-            txtMedicamento.setText("");
-            txtCantidad.setText("");
-            txtPrecio.setText("");
-            txtMedicamento.requestFocusInWindow();
+                ArrayList<Drogueria> actualizacionMedicamento;
+
+                if (aux == 0) {
+
+                    Drogueria dondevirgilio = new Drogueria(medicamento, cantidadmedicamento, Precio);
+                    dondevirgilio.guardar(salida);
+                    Helper.llenarTabla(tblMostrarDatos, ruta);
+                    txtMedicamento.setText("");
+                    txtCantidad.setText("");
+                    txtPrecio.setText("");
+                    txtMedicamento.requestFocusInWindow();
+
+                } else {
+                    actualizacionMedicamento = Helper.actualizacionMedicamento(ruta, medicamento, cantidadmedicamento, Precio);
+                    salida = new ObjectOutputStream(new FileOutputStream(ruta));
+                    Helper.volcadoDrogueria(salida, actualizacionMedicamento);
+                    Helper.llenarTabla(tblMostrarDatos, ruta);
+                    Helper.mensaje(this, "Medicamento actualizado en el sistema", 1);
+
+                }
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+            {
+
+            }
         }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
-    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
-        txtMedicamento.setText("");
-        txtCantidad.setText("");
-        txtPrecio.setText("");
-        txtMedicamento.requestFocusInWindow();
-    }//GEN-LAST:event_cmdLimpiarActionPerformed
+    private void cmdConservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdConservarActionPerformed
+        limpiar();
+        JButton botonesH[] = {cmdBuscar, cmdConservar};
+        JButton botonesD[] = {cmdGuardar, cmdEliminar};
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+    }//GEN-LAST:event_cmdConservarActionPerformed
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
-        int dato, mostrar;
+        int i, op;
 
-        mostrar = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar esta compra?", "Eliminar", JOptionPane.YES_NO_OPTION);
+        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?", "Eliminar", JOptionPane.YES_NO_OPTION);
+            
+        if (op == JOptionPane.YES_OPTION) {
 
-        ArrayList<Drogueria> llamadas = Helper.traerDatos(ruta);
-
-        if (mostrar == JOptionPane.YES_OPTION) {
-            dato = tblMostrarDatos.getSelectedRow();
-            llamadas.remove(dato);
             try {
+                i = tblMostrarDatos.getSelectedRow();
+                Drogueria.remove(i);
                 salida = new ObjectOutputStream(new FileOutputStream(ruta));
+                Helper.volcadoDrogueria(salida, Drogueria);
+                Helper.llenarTabla(tblMostrarDatos, ruta);
+                txtMedicamento.setText("");   
+                txtCantidad.setText("");
+                txtPrecio.setText("");
+                txtMedicamento.requestFocusInWindow();
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(Drogueria.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(IngresarDatos.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(Drogueria.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(IngresarDatos.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Helper.volcadoDrogueria(salida, Drogueria);
-            Helper.llenarTabla(tblMostrarDatos, ruta);
-     
-            txtMedicamento.setText("");
-            txtCantidad.setText("");
-            txtPrecio.setText("");
-            txtMedicamento.requestFocusInWindow();
+        }
+        JButton botonesH[] = {cmdBuscar, cmdConservar};
+        JButton botonesD[] = {cmdGuardar, cmdEliminar};
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+        {
         }
     }//GEN-LAST:event_cmdEliminarActionPerformed
 
@@ -327,19 +346,27 @@ public class IngresarDatos extends javax.swing.JDialog {
             p = Helper.traerPreciomedicamento(precio, ruta);
             txtMedicamento.setText(p.getMedicamento());
             txtCantidad.setText(p.getCantidadmedicamento());
-            
+
             aux = 1;
         } else {
             txtMedicamento.requestFocusInWindow();
             aux = 0;
         }
-        JButton botonesH[]={cmdGuardar,cmdLimpiar, cmdEliminar};
-        JButton botonesD[]={cmdBuscar};
-        
+        JButton botonesH[] = {cmdGuardar, cmdConservar, cmdEliminar};
+        JButton botonesD[] = {cmdBuscar};
+
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
 
     }//GEN-LAST:event_cmdBuscarActionPerformed
+    public void limpiar() {
+        txtMedicamento.setText("");
+        txtCantidad.setText("");
+        txtPrecio.setText("");
+
+        txtMedicamento.requestFocusInWindow();
+        aux = 0;
+    }
 
     /**
      * @param args the command line arguments
@@ -385,9 +412,9 @@ public class IngresarDatos extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cmdBuscar;
+    private javax.swing.JButton cmdConservar;
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdGuardar;
-    private javax.swing.JButton cmdLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

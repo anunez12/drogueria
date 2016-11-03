@@ -148,4 +148,30 @@ public class Helper {
         }
         return null;
     }
+
+    public static ArrayList<Drogueria> actualizacionMedicamento(String ruta, String medicamento, String cantidadmedicamento, String Precio) {
+        ArrayList<Drogueria> Drogueria = traerDatos(ruta);
+        for (int i = 0; i < Drogueria.size(); i++) {
+            if (Drogueria.get(i).getMedicamento().equals(medicamento)) {
+                Drogueria.get(i).setCantidadmedicamento(cantidadmedicamento);
+                Drogueria.get(i).setPrecio(Precio);
+
+                i = Drogueria.size();
+            }
+        }
+        return Drogueria;
+    }
+
+    public static ArrayList<Drogueria> actualizacionMedicamento(String ruta, Drogueria dondevirgilio) {
+        ArrayList<Drogueria> Drogueria = traerDatos(ruta);
+        for (int i = 0; i < Drogueria.size(); i++) {
+            if (Drogueria.get(i).getMedicamento().equals(dondevirgilio.getMedicamento())) {
+                Drogueria.get(i).setCantidadmedicamento(dondevirgilio.getCantidadmedicamento());
+                Drogueria.get(i).setPrecio(dondevirgilio.getPrecio());
+
+                i = Drogueria.size();
+            }
+        }
+        return Drogueria;
+    }
 }
