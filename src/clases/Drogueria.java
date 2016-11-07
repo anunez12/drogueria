@@ -17,11 +17,21 @@ public class Drogueria implements java.io.Serializable{
     private String medicamento;
     private String cantidadmedicamento;
     private String Precio;
-
-    public Drogueria(String medicamento, String cantidadmedicamento, String Precio) {
+    private String Tipo; 
+    
+    public Drogueria(String medicamento, String cantidadmedicamento, String Precio,String tipo) {
         this.medicamento = medicamento;
         this.cantidadmedicamento = cantidadmedicamento;
-        this.Precio = Precio;
+        this.Precio = Precio; 
+        this.Tipo = tipo; 
+    }
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
     }
                         
     public String getMedicamento() {

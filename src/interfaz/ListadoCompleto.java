@@ -1,4 +1,4 @@
-/*
+      /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,13 +15,14 @@ public class ListadoCompleto extends javax.swing.JDialog {
 
     /**
      * Creates new form ListadoCompleto
-     */ 
+     */
     String ruta;
+
     public ListadoCompleto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents(); 
-         ruta = "src/serializar/serializacion.txt";
-        Helper.llenarTabla(tblListadoCompleto, ruta);   
+        initComponents();
+        ruta = "src/serializar/serializacion.txt";
+        Helper.llenarTabla(tblListadoCompleto, ruta);
     }
 
     /**
@@ -51,11 +52,11 @@ public class ListadoCompleto extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Medicamento", "Cantidad", "Precio"
+                "No.", "Medicamento", "Cantidad", "Precio", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

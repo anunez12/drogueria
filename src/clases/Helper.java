@@ -100,18 +100,35 @@ public class Helper {
 
         int numfilas;
 
-        ArrayList<Drogueria> llamadas = traerDatos(ruta);
+        ArrayList<Drogueria> medicamento = traerDatos(ruta);
 
         tm = (DefaultTableModel) tabla.getModel();
         limpiadoTabla(tabla);
-        numfilas = llamadas.size();
+        numfilas = medicamento.size();
         tm.setRowCount(numfilas);
 
         for (int i = 0; i < numfilas; i++) {
             tabla.setValueAt(i + 1, i, 0);
-            tabla.setValueAt(llamadas.get(i).getMedicamento(), i, 1);
-            tabla.setValueAt(llamadas.get(i).getCantidadmedicamento(), i, 2);
-            tabla.setValueAt(llamadas.get(i).getPrecio(), i, 3);
+            tabla.setValueAt(medicamento.get(i).getMedicamento(), i, 1);
+            tabla.setValueAt(medicamento.get(i).getCantidadmedicamento(), i, 2);
+            tabla.setValueAt(medicamento.get(i).getPrecio(), i, 3);
+            tabla.setValueAt(medicamento.get(i).getTipo(), i, 4);
+        }
+    }
+
+    public static void llenarTabla(JTable tabla, ArrayList<Drogueria> Droguerias) {
+        DefaultTableModel tm;
+        int nf;
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = Droguerias.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(Droguerias.get(i).getMedicamento(), i, 1);
+            tabla.setValueAt(Droguerias.get(i).getCantidadmedicamento(), i, 2);
+            tabla.setValueAt(Droguerias.get(i).getPrecio(), i, 3);
+            tabla.setValueAt(Droguerias.get(i).getTipo(), i, 4);
         }
     }
 
@@ -149,12 +166,13 @@ public class Helper {
         return null;
     }
 
-    public static ArrayList<Drogueria> actualizacionMedicamento(String ruta, String medicamento, String cantidadmedicamento, String Precio) {
+    public static ArrayList<Drogueria> actualizacionMedicamento(String ruta, String medicamento, String cantidadmedicamento, String Precio, String tipo) {
         ArrayList<Drogueria> Drogueria = traerDatos(ruta);
         for (int i = 0; i < Drogueria.size(); i++) {
             if (Drogueria.get(i).getMedicamento().equals(medicamento)) {
                 Drogueria.get(i).setCantidadmedicamento(cantidadmedicamento);
                 Drogueria.get(i).setPrecio(Precio);
+                Drogueria.get(i).setTipo(tipo);
 
                 i = Drogueria.size();
             }
@@ -168,10 +186,24 @@ public class Helper {
             if (Drogueria.get(i).getMedicamento().equals(dondevirgilio.getMedicamento())) {
                 Drogueria.get(i).setCantidadmedicamento(dondevirgilio.getCantidadmedicamento());
                 Drogueria.get(i).setPrecio(dondevirgilio.getPrecio());
+                Drogueria.get(i).setTipo(dondevirgilio.getTipo());
 
                 i = Drogueria.size();
             }
         }
         return Drogueria;
+    }
+
+    public static void listadoGenerico_Comercial(JTable tabla, String ruta, String tipo) {
+        ArrayList<Drogueria> Drogueria = traerDatos(ruta);
+        ArrayList<Drogueria> Droguerias = new ArrayList();
+        for (int i = 0; i < Drogueria.size(); i++) {
+            if (Drogueria.get(i).getTipo().equals(tipo)) {
+                Droguerias.add(Drogueria.get(i));
+            }
+
+        }
+        llenarTabla(tabla, Droguerias);
+
     }
 }

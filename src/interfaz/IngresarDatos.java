@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger;          
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -70,6 +70,8 @@ public class IngresarDatos extends javax.swing.JDialog {
         txtMedicamento = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        cmbTipo = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         cmdGuardar = new javax.swing.JButton();
         cmdEliminar = new javax.swing.JButton();
@@ -129,7 +131,17 @@ public class IngresarDatos extends javax.swing.JDialog {
         });
         jPanel2.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 120, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 150));
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 153));
+        jLabel5.setText("Tipo");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        cmbTipo.setFont(new java.awt.Font("Traditional Arabic", 2, 14)); // NOI18N
+        cmbTipo.setForeground(new java.awt.Color(204, 0, 204));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Generico ", "Comercial" }));
+        jPanel2.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 120, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 190));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Galeria De Botones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 2, 18), new java.awt.Color(0, 102, 102))); // NOI18N
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -172,7 +184,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         });
         jPanel3.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 250, 140));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 250, 140));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mostrar Datos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 2, 18), new java.awt.Color(153, 0, 153))); // NOI18N
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -183,7 +195,7 @@ public class IngresarDatos extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Medicamento", "Cantidad", "Precio"
+                "No.", "Medicamento", "Cantidad", "Precio", "Tipo"
             }
         ));
         tblMostrarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,13 +205,13 @@ public class IngresarDatos extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblMostrarDatos);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 500, 260));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 500, 290));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 520, 300));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 520, 330));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/stock-of-medicine-600x400.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/85a485429c131fd3d99b44cd6ff2d0c1.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 310));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,16 +263,17 @@ public class IngresarDatos extends javax.swing.JDialog {
             txtPrecio.requestFocusInWindow();
         } else {
             try {
-                String medicamento, cantidadmedicamento, Precio;
+                String medicamento, cantidadmedicamento, Precio, tipo;
                 medicamento = txtMedicamento.getText();
                 cantidadmedicamento = txtCantidad.getText();
                 Precio = txtPrecio.getText();
+                tipo = cmbTipo.getSelectedItem().toString();
 
                 ArrayList<Drogueria> actualizacionMedicamento;
 
                 if (aux == 0) {
 
-                    Drogueria dondevirgilio = new Drogueria(medicamento, cantidadmedicamento, Precio);
+                    Drogueria dondevirgilio = new Drogueria(medicamento, cantidadmedicamento, Precio,tipo);
                     dondevirgilio.guardar(salida);
                     Helper.llenarTabla(tblMostrarDatos, ruta);
                     txtMedicamento.setText("");
@@ -269,7 +282,7 @@ public class IngresarDatos extends javax.swing.JDialog {
                     txtMedicamento.requestFocusInWindow();
 
                 } else {
-                    actualizacionMedicamento = Helper.actualizacionMedicamento(ruta, medicamento, cantidadmedicamento, Precio);
+                    actualizacionMedicamento = Helper.actualizacionMedicamento(ruta, medicamento, cantidadmedicamento, Precio,tipo);
                     salida = new ObjectOutputStream(new FileOutputStream(ruta));
                     Helper.volcadoDrogueria(salida, actualizacionMedicamento);
                     Helper.llenarTabla(tblMostrarDatos, ruta);
@@ -297,7 +310,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         int i, op;
 
         op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?", "Eliminar", JOptionPane.YES_NO_OPTION);
-            
+
         if (op == JOptionPane.YES_OPTION) {
 
             try {
@@ -306,9 +319,10 @@ public class IngresarDatos extends javax.swing.JDialog {
                 salida = new ObjectOutputStream(new FileOutputStream(ruta));
                 Helper.volcadoDrogueria(salida, Drogueria);
                 Helper.llenarTabla(tblMostrarDatos, ruta);
-                txtMedicamento.setText("");   
+                txtMedicamento.setText("");
                 txtCantidad.setText("");
-                txtPrecio.setText("");
+                txtPrecio.setText(""); 
+                cmbTipo.setSelectedIndex(0); 
                 txtMedicamento.requestFocusInWindow();
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(IngresarDatos.class.getName()).log(Level.SEVERE, null, ex);
@@ -335,7 +349,8 @@ public class IngresarDatos extends javax.swing.JDialog {
 
         txtMedicamento.setText(dondevirgilio.getMedicamento());
         txtCantidad.setText(dondevirgilio.getCantidadmedicamento());
-        txtPrecio.setText(dondevirgilio.getPrecio());
+        txtPrecio.setText(dondevirgilio.getPrecio()); 
+        cmbTipo.setSelectedItem(dondevirgilio.getTipo());
     }//GEN-LAST:event_tblMostrarDatosMouseClicked
 
     private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
@@ -362,7 +377,8 @@ public class IngresarDatos extends javax.swing.JDialog {
     public void limpiar() {
         txtMedicamento.setText("");
         txtCantidad.setText("");
-        txtPrecio.setText("");
+        txtPrecio.setText(""); 
+        cmbTipo.setSelectedIndex(0); 
 
         txtMedicamento.requestFocusInWindow();
         aux = 0;
@@ -411,6 +427,7 @@ public class IngresarDatos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbTipo;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdConservar;
     private javax.swing.JButton cmdEliminar;
@@ -419,6 +436,7 @@ public class IngresarDatos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

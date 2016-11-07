@@ -5,7 +5,7 @@
  */
 package interfaz;
 
-/**
+/**         
  *
  * @author SP
  */
