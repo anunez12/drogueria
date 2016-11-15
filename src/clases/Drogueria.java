@@ -27,7 +27,7 @@ public class Drogueria implements java.io.Serializable{
     }
 
     public String getTipo() {
-        return Tipo;
+        return Tipo;  
     }
 
     public void setTipo(String Tipo) {

@@ -26,7 +26,7 @@ public class Persona extends Drogueria {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.sexo = sexo;
+        this.sexo = sexo;    
     }
 
     public String getCedula() {

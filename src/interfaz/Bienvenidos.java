@@ -15,7 +15,7 @@ public class Bienvenidos extends javax.swing.JFrame {
      * Creates new form Bienvenidos
      */
     public Bienvenidos() {
-        initComponents();    
+        initComponents();       
     }
 
     /**

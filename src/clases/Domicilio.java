@@ -41,6 +41,6 @@ public class Domicilio extends Drogueria{
   public void guardar(ObjectOutputStream salida) throws IOException {
         salida.writeObject(this);  
   }
-  
+                      
                  
 }

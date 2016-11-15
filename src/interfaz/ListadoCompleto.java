@@ -15,7 +15,7 @@ public class ListadoCompleto extends javax.swing.JDialog {
 
     /**
      * Creates new form ListadoCompleto
-     */
+     */    
     String ruta;
 
     public ListadoCompleto(java.awt.Frame parent, boolean modal) {
