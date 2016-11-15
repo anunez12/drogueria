@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaz;                         
+package interfaz;
 
-import clases.Helper;   
-    
+import clases.Helper;
+
 /**
  *
  * @author SP
@@ -35,6 +35,7 @@ public class Administrador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cmdDrogueria = new javax.swing.JButton();
+        cmbDrogueria = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +67,10 @@ public class Administrador extends javax.swing.JFrame {
                 cmdDrogueriaActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdDrogueria, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
+        jPanel1.add(cmdDrogueria, new org.netbeans.lib.awtextra.AbsoluteConstraints(379, 130, 90, -1));
+
+        cmbDrogueria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingresar ", "Salir" }));
+        jPanel1.add(cmbDrogueria, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/administrador.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -76,7 +80,7 @@ public class Administrador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,15 +94,22 @@ public class Administrador extends javax.swing.JFrame {
     private void cmdDrogueriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdDrogueriaActionPerformed
         String usuario = "virgilio";
         String contraseña = "administrador";
+        int op = cmbDrogueria.getSelectedIndex();
 
         String passw = new String(jPasswordField1.getPassword());
-
-        if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
-            Drogueria Principal = new Drogueria();
-            Principal.setVisible(true);
-        } else {
-            Bienvenidos Principal = new Bienvenidos();
-            Principal.setVisible(true);
+        switch (op) {
+            case 0:
+                if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
+                    Drogueria Principal = new Drogueria();
+                    Principal.setVisible(true);
+                } else {
+                    Bienvenidos Principal = new Bienvenidos();
+                    Principal.setVisible(true);
+                }
+                break;
+            case 1:
+                System.exit(0);
+                break;  
         }
     }//GEN-LAST:event_cmdDrogueriaActionPerformed
 
@@ -146,6 +157,7 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbDrogueria;
     private javax.swing.JButton cmdDrogueria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

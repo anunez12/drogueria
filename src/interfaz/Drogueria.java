@@ -7,7 +7,7 @@ package interfaz;
 
 import clases.Helper;
 
-/**    
+/**
  *
  * @author SP
  */
@@ -19,7 +19,7 @@ public class Drogueria extends javax.swing.JFrame {
     String ruta;
 
     public Drogueria() {
-        initComponents();   
+        initComponents();
         ruta = "src/serializar/serializacion.txt";
     }
 
@@ -194,12 +194,12 @@ public class Drogueria extends javax.swing.JFrame {
     }//GEN-LAST:event_mnCantidadDeMedicamentosActionPerformed
 
     private void mnListadoGenerico_ComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListadoGenerico_ComercialActionPerformed
-        Listado_Generico_Comercial lGC= new Listado_Generico_Comercial(this, true);
+        Listado_Generico_Comercial lGC = new Listado_Generico_Comercial(this, true);
         lGC.setVisible(true);
     }//GEN-LAST:event_mnListadoGenerico_ComercialActionPerformed
 
     private void mnRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRetornoActionPerformed
-        Bienvenidos inicio = new Bienvenidos();
+        Presentacion_Proyecto inicio = new Presentacion_Proyecto();
         inicio.setVisible(true);
     }//GEN-LAST:event_mnRetornoActionPerformed
 

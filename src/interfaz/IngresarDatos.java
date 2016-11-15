@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;          
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -261,8 +262,59 @@ public class IngresarDatos extends javax.swing.JDialog {
         } else if (txtPrecio.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Ingrese precio del medicamento", 1);
             txtPrecio.requestFocusInWindow();
-        } else {
+        } else { 
+           try {
+            String medicamento=txtMedicamento.getText(), cantidadmedicamento=txtCantidad.getText(), precio=txtPrecio.getText() , tipo=cmbTipo.getSelectedItem().toString() ;
+            ArrayList<Drogueria> medicamentoActualizado;
             try {
+                medicamento = txtMedicamento.getText();
+                cantidadmedicamento = txtCantidad.getText();
+                precio = txtPrecio.getText();
+               
+                
+                tipo = cmbTipo.getSelectedItem().toString();
+
+            } catch (Exception e) {
+                Helper.mensaje(this,"Digite datos aptos para el sistema", 3);
+            }
+            if (txtMedicamento.getText().isEmpty() || txtCantidad.getText().isEmpty() || txtPrecio.getText().isEmpty()) {
+                Helper.mensaje(this,"No se pueden dejar espacio en blanco",2);
+            } else {
+
+                if (aux == 0) {
+
+                    Drogueria dondevirgilio = new Drogueria(medicamento, cantidadmedicamento, precio, tipo);
+
+                    dondevirgilio.guardar(salida);
+                    txtMedicamento.requestFocusInWindow();
+                    Helper.mensaje(this,"Datos Guardados en el sistema",1);
+                    Helper.llenarTabla(tblMostrarDatos, ruta);
+                    limpiar();
+                    
+
+                } else {
+                    medicamentoActualizado = Helper.actualizacionMedicamento(ruta,medicamento,cantidadmedicamento,precio,tipo);
+                    salida = new ObjectOutputStream(new FileOutputStream(ruta));
+                    Helper.volcadoDrogueria(salida, medicamentoActualizado);
+                    Helper.llenarTabla(tblMostrarDatos, ruta);
+                    Helper.mensaje(this,"Datos Actualizados en el sistema",1);
+
+                    limpiar();
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        JButton botonesH[] = {cmdBuscar, cmdConservar};
+        JButton botonesD[] = {cmdEliminar, cmdGuardar};
+        
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
+        
+            /*try {
                 String medicamento, cantidadmedicamento, Precio, tipo;
                 medicamento = txtMedicamento.getText();
                 cantidadmedicamento = txtCantidad.getText();
@@ -294,7 +346,7 @@ public class IngresarDatos extends javax.swing.JDialog {
             }
             {
 
-            }
+            }*/
         }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
@@ -307,7 +359,7 @@ public class IngresarDatos extends javax.swing.JDialog {
     }//GEN-LAST:event_cmdConservarActionPerformed
 
     private void cmdEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarActionPerformed
-        int i, op;
+        /*int i, op;
 
         op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?", "Eliminar", JOptionPane.YES_NO_OPTION);
 
@@ -335,11 +387,43 @@ public class IngresarDatos extends javax.swing.JDialog {
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
         {
+        } 
+      */   
+         int i, op;
+
+        op = JOptionPane.showConfirmDialog(this, "¿Seguro que desea eliminar?", "Eliminar", JOptionPane.YES_NO_OPTION);
+
+        if (op == JOptionPane.YES_OPTION) {
+
+            try {
+                i = tblMostrarDatos.getSelectedRow();
+                Drogueria.remove(i);
+                salida = new ObjectOutputStream(new FileOutputStream(ruta));
+                Helper.volcadoDrogueria(salida, Drogueria);
+                Helper.llenarTabla(tblMostrarDatos, ruta);
+                limpiar();
+            } catch (FileNotFoundException ex) {
+                System.out.println(ex.getMessage());
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }//GEN-LAST:event_cmdEliminarActionPerformed
 
     private void tblMostrarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMostrarDatosMouseClicked
-        int dato;
+        Drogueria dondevirgilio;
+        int albin;
+        Drogueria = Helper.traerDatos(ruta);
+        albin = tblMostrarDatos.getSelectedRow();
+        dondevirgilio = Drogueria.get(albin);
+
+        txtMedicamento.setText(dondevirgilio.getMedicamento());
+        txtCantidad.setText(dondevirgilio.getCantidadmedicamento());
+        txtPrecio.setText(dondevirgilio.getPrecio());
+       
+        cmbTipo.setSelectedItem(dondevirgilio.getTipo());
+        aux = 1;
+        /*int dato;
 
         Drogueria dondevirgilio;
         ArrayList<Drogueria> personas = Helper.traerDatos(ruta);
@@ -350,7 +434,8 @@ public class IngresarDatos extends javax.swing.JDialog {
         txtMedicamento.setText(dondevirgilio.getMedicamento());
         txtCantidad.setText(dondevirgilio.getCantidadmedicamento());
         txtPrecio.setText(dondevirgilio.getPrecio()); 
-        cmbTipo.setSelectedItem(dondevirgilio.getTipo());
+        cmbTipo.setSelectedItem(dondevirgilio.getTipo()); 
+      */
     }//GEN-LAST:event_tblMostrarDatosMouseClicked
 
     private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed

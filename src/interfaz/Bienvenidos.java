@@ -5,17 +5,17 @@
  */
 package interfaz;
 
-/**         
+/**
  *
  * @author SP
- */
+ */       
 public class Bienvenidos extends javax.swing.JFrame {
 
     /**
      * Creates new form Bienvenidos
      */
     public Bienvenidos() {
-        initComponents();    
+        initComponents();
     }
 
     /**
@@ -27,17 +27,24 @@ public class Bienvenidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelSeleccion = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         cmdSalir = new javax.swing.JButton();
         cmdEntrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Acceder = new javax.swing.JRadioButton();
+        Salir = new javax.swing.JRadioButton();
+        cmdPresentacion = new javax.swing.JButton();
+        Presentacion = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenidos");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bienvenidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tunga", 2, 24), new java.awt.Color(153, 51, 255))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdSalir.setFont(new java.awt.Font("Tunga", 2, 24)); // NOI18N
         cmdSalir.setForeground(new java.awt.Color(255, 204, 0));
@@ -47,7 +54,7 @@ public class Bienvenidos extends javax.swing.JFrame {
                 cmdSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 270, -1));
+        jPanel2.add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 270, -1));
 
         cmdEntrar.setFont(new java.awt.Font("Tunga", 2, 24)); // NOI18N
         cmdEntrar.setForeground(new java.awt.Color(255, 51, 51));
@@ -57,25 +64,40 @@ public class Bienvenidos extends javax.swing.JFrame {
                 cmdEntrarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 270, -1));
+        jPanel2.add(cmdEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 270, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 0, 204));
-        jLabel2.setText("Bienvenidos Queridos Internautas ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, -1));
+        PanelSeleccion.add(Acceder);
+        Acceder.setText("Acceder");
+        jPanel2.add(Acceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/o_facecoverz.com-1366033387552.jpg"))); // NOI18N
+        PanelSeleccion.add(Salir);
+        Salir.setText("Salir");
+        jPanel2.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, -1));
+
+        cmdPresentacion.setFont(new java.awt.Font("Tunga", 2, 24)); // NOI18N
+        cmdPresentacion.setText("Presentacion");
+        cmdPresentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPresentacionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cmdPresentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 270, 60));
+
+        PanelSeleccion.add(Presentacion);
+        Presentacion.setText("Presentacion");
+        jPanel2.add(Presentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 430, 260));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/large_article_im220_pharmaceuticals.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 290));
-
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,13 +108,24 @@ public class Bienvenidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEntrarActionPerformed
-        Administrador Principal = new Administrador();
-        Principal.setVisible(true);
+        if (Acceder.isSelected()) {
+            Administrador Principal = new Administrador();
+            Principal.setVisible(true);
+        }
     }//GEN-LAST:event_cmdEntrarActionPerformed
 
     private void cmdSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalirActionPerformed
-       System.exit(0);
+        if (Salir.isSelected()) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_cmdSalirActionPerformed
+
+    private void cmdPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPresentacionActionPerformed
+        if (Presentacion.isSelected()) {
+            Presentacion_Proyecto Principal = new Presentacion_Proyecto();
+            Principal.setVisible(true);
+        }  
+    }//GEN-LAST:event_cmdPresentacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,11 +163,15 @@ public class Bienvenidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Acceder;
+    private javax.swing.ButtonGroup PanelSeleccion;
+    private javax.swing.JRadioButton Presentacion;
+    private javax.swing.JRadioButton Salir;
     private javax.swing.JButton cmdEntrar;
+    private javax.swing.JButton cmdPresentacion;
     private javax.swing.JButton cmdSalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
