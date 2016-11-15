@@ -7,7 +7,7 @@ package interfaz;
 
 import clases.Helper;
 
-/**
+/**        
  *
  * @author SP
  */
@@ -17,7 +17,7 @@ public class Administrador extends javax.swing.JFrame {
      * Creates new form Administrador
      */
     public Administrador() {
-        initComponents();
+        initComponents();    
     }
 
     /**
@@ -31,7 +31,7 @@ public class Administrador extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtContraseña = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cmdDrogueria = new javax.swing.JButton();
@@ -49,7 +49,13 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, -1));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, -1));
+
+        txtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContraseñaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 2, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 204));
@@ -96,7 +102,7 @@ public class Administrador extends javax.swing.JFrame {
         String contraseña = "administrador";
         int op = cmbDrogueria.getSelectedIndex();
 
-        String passw = new String(jPasswordField1.getPassword());
+        String passw = new String(txtContraseña.getPassword());
         switch (op) {
             case 0:
                 if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
@@ -120,6 +126,14 @@ public class Administrador extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtUsuarioKeyTyped
+
+    private void txtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraseñaKeyTyped
+       char c = evt.getKeyChar();
+        if (Character.isSpace(c)) {
+            getToolkit();
+            evt.consume();
+        }  
+    }//GEN-LAST:event_txtContraseñaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -163,7 +177,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

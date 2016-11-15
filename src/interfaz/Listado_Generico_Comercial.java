@@ -9,7 +9,7 @@ import clases.Helper;
 
 /**
  *    
- * @author SP
+ * @author SP   
  */
 public class Listado_Generico_Comercial extends javax.swing.JDialog {
 
@@ -20,7 +20,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
     public Listado_Generico_Comercial(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents(); 
-        ruta = "src/serializar/serializacion.txt";
+        ruta = "src/serializar/serializacion.txt";     
     }
 
     /**

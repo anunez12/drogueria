@@ -206,4 +206,8 @@ public class Helper {
         llenarTabla(tabla, Droguerias);
 
     }
+
+    static void mensaje(String string, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

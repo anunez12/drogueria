@@ -16,11 +16,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;          
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.JTextField;   
 
 /**
  *
- * @author SP
+ * @author SP   
  */
 public class IngresarDatos extends javax.swing.JDialog {
 

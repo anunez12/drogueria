@@ -7,7 +7,7 @@ package interfaz;
 
 import clases.Helper;
 
-/**
+/**   
  *
  * @author SP
  */
@@ -22,7 +22,7 @@ public class ListadoCompleto extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         ruta = "src/serializar/serializacion.txt";
-        Helper.llenarTabla(tblListadoCompleto, ruta);
+        Helper.llenarTabla(tblListadoCompleto, ruta);   
     }
 
     /**
