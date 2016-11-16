@@ -43,7 +43,8 @@ public class Bienvenidos extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bienvenidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tunga", 2, 24), new java.awt.Color(153, 51, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Bienvenidos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tunga", 2, 24), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdSalir.setFont(new java.awt.Font("Tunga", 2, 24)); // NOI18N

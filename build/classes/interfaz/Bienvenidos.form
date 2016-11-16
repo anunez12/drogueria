@@ -50,10 +50,11 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Bienvenidos">
                   <Font PropertyName="font" name="Tunga" size="24" style="2"/>
-                  <Color PropertyName="color" blue="ff" green="33" red="99" type="rgb"/>
+                  <Color PropertyName="color" blue="0" green="99" red="ff" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

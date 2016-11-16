@@ -16,7 +16,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
      */
     public Presentacion_Proyecto() {
         initComponents();                         
-    }
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,10 +52,11 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos-Presentacion", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 2, 18), new java.awt.Color(255, 204, 0))); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre Proyecto:");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
@@ -66,6 +67,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel2.add(txtNombreProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 160, 30));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre Presentador:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
@@ -75,7 +77,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel2.add(txtNombrePresentador, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Asignatura:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
@@ -86,7 +88,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel2.add(txtAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Grupo:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
@@ -97,7 +99,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel2.add(txtGrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 160, -1));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Semestre:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
@@ -108,7 +110,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
         jPanel2.add(txtSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 160, -1));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 2, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 0, 255));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Parla:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 60, -1));
 
@@ -120,7 +122,8 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 280));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "¿ Que Desea Hacer ?", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Traditional Arabic", 2, 18), new java.awt.Color(255, 153, 0))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "¿ Que Desea Hacer ?", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Traditional Arabic", 2, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbDecision.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inicio Proyecto ", "No Mirar Proyecto" }));
