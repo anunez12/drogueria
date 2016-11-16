@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;      
-
+   
 /**
  *
  * @author SP   
@@ -89,6 +89,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 2, 14), new java.awt.Color(153, 0, 153))); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
@@ -145,6 +146,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 190));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Galeria De Botones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 2, 18), new java.awt.Color(0, 102, 102))); // NOI18N
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdGuardar.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
@@ -188,6 +190,7 @@ public class IngresarDatos extends javax.swing.JDialog {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 250, 140));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mostrar Datos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 2, 18), new java.awt.Color(153, 0, 153))); // NOI18N
+        jPanel4.setOpaque(false);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMostrarDatos.setFont(new java.awt.Font("Traditional Arabic", 2, 18)); // NOI18N

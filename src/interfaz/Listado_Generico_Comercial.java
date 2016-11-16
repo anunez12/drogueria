@@ -47,6 +47,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Combo Listado", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 3, 18), new java.awt.Color(255, 102, 51))); // NOI18N
+        jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tunga", 2, 18)); // NOI18N
@@ -69,6 +70,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 120));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Generico-Comercial", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 2, 18))); // NOI18N
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMostrarDtos.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,7 +83,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblMostrarDtos);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 30, 750, 320));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 320));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 760, 360));
 
