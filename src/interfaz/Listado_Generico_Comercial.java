@@ -7,7 +7,7 @@ package interfaz;
 
 import clases.Helper;      
 
-/**   
+/**      
  *    
  * @author SP         
  */
@@ -43,6 +43,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Listado_Generico_Comercial");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
