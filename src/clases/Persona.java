@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- *
+ *      
  * @author SP
  */
-public class Persona extends Drogueria {
+public class Persona implements java.io.Serializable {
 
     private String cedula;
     private String nombre;
@@ -20,17 +20,17 @@ public class Persona extends Drogueria {
     private String edad;
     private String sexo;
 
-    public Persona(String medicamento, String cantidadmedicamento, String Precio, String tipo, String cedula, String nombre, String apellido, String edad, String sexo) {
-        super(medicamento, cantidadmedicamento, Precio, tipo);
+    public Persona(String cedula, String nombre, String apellido, String edad, String sexo) {
+
         this.cedula = cedula;
-        this.nombre = nombre;
+        this.nombre = nombre;   
         this.apellido = apellido;
         this.edad = edad;
-        this.sexo = sexo;    
+        this.sexo = sexo;
     }
 
     public String getCedula() {
-        return cedula;    
+        return cedula;
     }
 
     public void setCedula(String cedula) {

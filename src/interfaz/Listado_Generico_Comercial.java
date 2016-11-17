@@ -9,7 +9,7 @@ import clases.Helper;
 
 /**   
  *    
- * @author SP   
+ * @author SP         
  */
 public class Listado_Generico_Comercial extends javax.swing.JDialog {
 

@@ -20,7 +20,7 @@ import javax.swing.JTextField;
    
 /**
  *
- * @author SP   
+ * @author SP          
  */
 public class IngresarDatos extends javax.swing.JDialog {
 

@@ -7,8 +7,8 @@ package interfaz;
 
 import clases.Helper;
    
-/**
- *
+/**   
+ *      
  * @author SP         
  */
 public class Drogueria extends javax.swing.JFrame {

@@ -6,7 +6,7 @@
 package interfaz;
 
 /**
- *
+ *   
  * @author SP
  */
 public class Presentacion_Proyecto extends javax.swing.JFrame {
@@ -15,7 +15,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
      * Creates new form Presentacion_Proyecto
      */
     public Presentacion_Proyecto() {
-        initComponents();                         
+        initComponents();                            
     }    
 
     /**
