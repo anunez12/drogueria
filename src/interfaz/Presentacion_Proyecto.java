@@ -15,7 +15,7 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
      * Creates new form Presentacion_Proyecto
      */
     public Presentacion_Proyecto() {
-        initComponents();                            
+        initComponents();                                 
     }    
 
     /**
@@ -166,10 +166,11 @@ public class Presentacion_Proyecto extends javax.swing.JFrame {
             case 0:
                 Bienvenidos Principal = new Bienvenidos();
                 Principal.setVisible(true); 
+                dispose();
              break;
             case 1:
                 System.exit(0);
-                break;      
+                break;          
         }
     }//GEN-LAST:event_cmdConfirmarActionPerformed
 

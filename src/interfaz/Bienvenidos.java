@@ -15,7 +15,7 @@ public class Bienvenidos extends javax.swing.JFrame {
      * Creates new form Bienvenidos
      */
     public Bienvenidos() {
-        initComponents();          
+        initComponents();             
     }
 
     /**
@@ -111,20 +111,23 @@ public class Bienvenidos extends javax.swing.JFrame {
     private void cmdEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEntrarActionPerformed
         if (Acceder.isSelected()) {
             Administrador Principal = new Administrador();
-            Principal.setVisible(true);
+            Principal.setVisible(true); 
+            dispose();  
         }
     }//GEN-LAST:event_cmdEntrarActionPerformed
 
     private void cmdSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalirActionPerformed
         if (Salir.isSelected()) {
-            System.exit(0);
+            System.exit(0); 
+            dispose(); 
         }
     }//GEN-LAST:event_cmdSalirActionPerformed
 
     private void cmdPresentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPresentacionActionPerformed
         if (Presentacion.isSelected()) {
             Presentacion_Proyecto Principal = new Presentacion_Proyecto();
-            Principal.setVisible(true);
+            Principal.setVisible(true); 
+            dispose();
         }  
     }//GEN-LAST:event_cmdPresentacionActionPerformed
 

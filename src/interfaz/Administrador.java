@@ -6,7 +6,7 @@
 package interfaz;
 
 import clases.Helper;
-
+    
 /**
  *
  * @author SP
@@ -33,7 +33,7 @@ public class Administrador extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JTextField();
         txtContraseña = new javax.swing.JPasswordField();
-        cmbSalir = new javax.swing.JComboBox<>();
+        cmbSalir = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         cmbDrogueria = new javax.swing.JComboBox();
@@ -60,7 +60,8 @@ public class Administrador extends javax.swing.JFrame {
         });
         jPanel1.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 90, -1));
 
-        cmbSalir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Salir" }));
+        cmbSalir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Salir" }));
+        cmbSalir.setEnabled(false);
         jPanel1.add(cmbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 2, 24)); // NOI18N
@@ -154,14 +155,16 @@ public class Administrador extends javax.swing.JFrame {
                 case 0:
                     if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
                         Drogueria Principal = new Drogueria();
-                        Principal.setVisible(true);
+                        Principal.setVisible(true); 
+                        dispose();
                     } else {
                         Bienvenidos Principal = new Bienvenidos();
-                        Principal.setVisible(true);
+                        Principal.setVisible(true); 
+                        dispose();    
                     }
                     break;
 
-            }     
+            }
             if (ingresar.isSelected()) {
                 cmbDrogueria.setEnabled(true);
             } else if (ingresar.isSelected() == false) {
@@ -171,12 +174,12 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_ingresarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        int op = cmbDrogueria.getSelectedIndex();
+        int op = cmbSalir.getSelectedIndex();
 
         switch (op) {
             case 0:
                 System.exit(0);
-                break;
+                break;  
         }
 
 

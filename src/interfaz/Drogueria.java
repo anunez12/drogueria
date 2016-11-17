@@ -16,7 +16,7 @@ public class Drogueria extends javax.swing.JFrame {
     /**
      * Creates new form Drogueria
      */
-    String ruta;
+    String ruta;    
 
     public Drogueria() {
         initComponents();
@@ -200,7 +200,8 @@ public class Drogueria extends javax.swing.JFrame {
 
     private void mnRetornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRetornoActionPerformed
         Presentacion_Proyecto inicio = new Presentacion_Proyecto();
-        inicio.setVisible(true);
+        inicio.setVisible(true); 
+        dispose();   
     }//GEN-LAST:event_mnRetornoActionPerformed
 
     /**

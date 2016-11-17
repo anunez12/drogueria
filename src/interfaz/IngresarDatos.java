@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;          
-   
+        
 /**
  *
  * @author SP          
