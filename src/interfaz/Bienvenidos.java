@@ -6,7 +6,7 @@
 package interfaz;
 
 /**
- *   
+ *       
  * @author SP   
  */       
 public class Bienvenidos extends javax.swing.JFrame {

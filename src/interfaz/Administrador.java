@@ -7,7 +7,7 @@ package interfaz;
 
 import clases.Helper;
 
-/**  
+/**
  *
  * @author SP
  */
@@ -126,51 +126,60 @@ public class Administrador extends javax.swing.JFrame {
         char c = evt.getKeyChar();
         if (Character.isSpace(c)) {
             getToolkit();
-            evt.consume();                                   
+            evt.consume();
         }
     }//GEN-LAST:event_txtContraseñaKeyTyped
 
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
-       /* if (ingresar.isSelected()) {
+        /* if (ingresar.isSelected()) {
        
-        }else if(ingresar.isSelected()==false){ 
-           cmdDrogueria.setEnabled(false);
-        } 
-     */ 
-        String usuario = "virgilio";
-        String contraseña = "administrador";
-        int op = cmbDrogueria.getSelectedIndex();
+         }else if(ingresar.isSelected()==false){ 
+         cmdDrogueria.setEnabled(false);
+         } 
+         */
+        if (txtUsuario.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "¡Digite el usuario!", 1);
+            txtUsuario.requestFocusInWindow();
+        } else if (txtContraseña.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "¡Digite la contraseña!", 1);
+            txtContraseña.requestFocusInWindow();
+        } else {
 
-        String passw = new String(txtContraseña.getPassword());
-        switch (op) {
-            case 0:
-                if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
-                    Drogueria Principal = new Drogueria();
-                    Principal.setVisible(true);
-                } else {
-                    Bienvenidos Principal = new Bienvenidos();
-                    Principal.setVisible(true);
-                }
-                break;
-           
-        } 
-        if(ingresar.isSelected()){ 
-          cmbDrogueria.setEnabled(true);
-        }else if(ingresar.isSelected()==false){ 
-          cmbDrogueria.setEnabled(false);
+            String usuario = "virgilio";
+            String contraseña = "administrador";
+            int op = cmbDrogueria.getSelectedIndex();
+
+            String passw = new String(txtContraseña.getPassword());
+            switch (op) {
+                case 0:
+                    if (txtUsuario.getText().equals(usuario) && passw.equals(contraseña)) {
+                        Drogueria Principal = new Drogueria();
+                        Principal.setVisible(true);
+                    } else {
+                        Bienvenidos Principal = new Bienvenidos();
+                        Principal.setVisible(true);
+                    }
+                    break;
+
+            }     
+            if (ingresar.isSelected()) {
+                cmbDrogueria.setEnabled(true);
+            } else if (ingresar.isSelected() == false) {
+                cmbDrogueria.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_ingresarActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-       int op = cmbDrogueria.getSelectedIndex(); 
-       
-       switch (op){ 
-           case 0: 
-         System.exit(0); 
-         break;   
-       } 
-        
-        
+        int op = cmbDrogueria.getSelectedIndex();
+
+        switch (op) {
+            case 0:
+                System.exit(0);
+                break;
+        }
+
+
     }//GEN-LAST:event_SalirActionPerformed
 
     /**
