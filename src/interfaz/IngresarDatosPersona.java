@@ -40,7 +40,7 @@ public class IngresarDatosPersona extends javax.swing.JDialog {
 
         Helper.habilitarBotones(botonesH);
         Helper.deshabilitarBotones(botonesD);
-        ruta = "src/serializar/serializacion_persona.txt";
+        ruta = "src/serializar/persona.txt";
         try {
             personas = Helper.traerDatos(ruta);
             salida = new ObjectOutputStream(new FileOutputStream(ruta));

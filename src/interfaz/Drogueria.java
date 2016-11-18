@@ -50,6 +50,7 @@ public class Drogueria extends javax.swing.JFrame {
         mnIngresarDatosPersonas = new javax.swing.JCheckBoxMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMenu5 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         mnListadoCompletoPersonas = new javax.swing.JCheckBoxMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mnSalir = new javax.swing.JMenuItem();
@@ -154,6 +155,15 @@ public class Drogueria extends javax.swing.JFrame {
         jMenu5.setText("Reportes");
         jMenu5.setFont(new java.awt.Font("Segoe UI Light", 2, 18)); // NOI18N
 
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jCheckBoxMenuItem1);
+
         mnListadoCompletoPersonas.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         mnListadoCompletoPersonas.setSelected(true);
         mnListadoCompletoPersonas.setText("Listado Completo");
@@ -248,8 +258,12 @@ public class Drogueria extends javax.swing.JFrame {
 
     private void mnListadoCompletoPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListadoCompletoPersonasActionPerformed
         ListadoCompletoPersonas lc = new ListadoCompletoPersonas(this, true);
-        lc.setVisible(true);
+        lc.setVisible(true);    
     }//GEN-LAST:event_mnListadoCompletoPersonasActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        // TODO add
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,6 +301,7 @@ public class Drogueria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

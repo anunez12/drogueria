@@ -308,7 +308,7 @@ public class Helper {
             }
 
         }
-        llenarTablaPersona(tabla, yogui); 
+        llenarTablaPersona(tabla, yogui);   
 
     }
 }
