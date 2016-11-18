@@ -5,22 +5,21 @@
  */
 package interfaz;
 
-import clases.Helper;      
+import clases.Helper;
 
-/**      
- *    
- * @author SP         
+/**
+ *
+ * @author SP
  */
-public class Listado_Generico_Comercial extends javax.swing.JDialog {
+public class Listado_Sexo extends javax.swing.JDialog {
 
     /**
-     * Creates new form Listado_Generico_Comercial
+     * Creates new form Listado_Sexo
      */ 
     String ruta;
-    public Listado_Generico_Comercial(java.awt.Frame parent, boolean modal) {
+    public Listado_Sexo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents(); 
-        ruta = "src/serializar/serializacion.txt";           
+        initComponents();
     }
 
     /**
@@ -35,15 +34,13 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cmbTipo = new javax.swing.JComboBox();
+        cmbSexo = new javax.swing.JComboBox();
         cmdObservar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMostrarDtos = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Listado_Generico_Comercial");
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -55,8 +52,8 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jLabel1.setText("Tipo");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 23, 40, 60));
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Generico ", "Comercial" }));
-        jPanel2.add(cmbTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 240, -1));
+        cmbSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino ", "Femenino ", "Bola" }));
+        jPanel2.add(cmbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 240, -1));
 
         cmdObservar.setFont(new java.awt.Font("Sylfaen", 2, 18)); // NOI18N
         cmdObservar.setForeground(new java.awt.Color(153, 0, 153));
@@ -79,7 +76,7 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No..", "Medicamento", "Cantidad", "Precio", "Tipo"
+                "No..", "Cedula", "Nombre", "Apellido", "Edad", "Sexo"
             }
         ));
         jScrollPane1.setViewportView(tblMostrarDtos);
@@ -87,10 +84,6 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 740, 320));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 760, 360));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/85a485429c131fd3d99b44cd6ff2d0c1.jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,13 +96,12 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(806, 517));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdObservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdObservarActionPerformed
-        String tipo = cmbTipo.getSelectedItem().toString();
-        Helper.listadoGenerico_Comercial(tblMostrarDtos, ruta, tipo);
+        String sexo= cmbSexo.getSelectedItem().toString();
+        Helper.listadoSexo_Persona(tblMostrarDtos, ruta, sexo); 
     }//GEN-LAST:event_cmdObservarActionPerformed
 
     /**
@@ -129,20 +121,20 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Listado_Generico_Comercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listado_Sexo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Listado_Generico_Comercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listado_Sexo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Listado_Generico_Comercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listado_Sexo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Listado_Generico_Comercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Listado_Sexo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Listado_Generico_Comercial dialog = new Listado_Generico_Comercial(new javax.swing.JFrame(), true);
+                Listado_Sexo dialog = new Listado_Sexo(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -155,10 +147,9 @@ public class Listado_Generico_Comercial extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmbTipo;
+    private javax.swing.JComboBox cmbSexo;
     private javax.swing.JButton cmdObservar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

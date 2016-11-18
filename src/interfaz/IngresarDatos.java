@@ -256,8 +256,8 @@ public class IngresarDatos extends javax.swing.JDialog {
     }//GEN-LAST:event_txtPrecioKeyTyped
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        if (txtMedicamento.getText().trim().isEmpty()) {
-            Helper.mensaje(this, "Ingrese medicamento a comprar", 1);
+       if (txtMedicamento.getText().trim().isEmpty()) {
+            Helper .mensaje(this, "Ingrese medicamento a comprar", 1);
             txtMedicamento.requestFocusInWindow();
         } else if (txtCantidad.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Ingrese cantidad a comprar", 1);

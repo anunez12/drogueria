@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- *      
+ *
  * @author SP
  */
 public class Persona implements java.io.Serializable {
@@ -23,7 +23,7 @@ public class Persona implements java.io.Serializable {
     public Persona(String cedula, String nombre, String apellido, String edad, String sexo) {
 
         this.cedula = cedula;
-        this.nombre = nombre;   
+        this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.sexo = sexo;

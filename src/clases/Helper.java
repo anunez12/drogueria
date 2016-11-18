@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-       
+
 /**
  *
  * @author SP
@@ -207,7 +207,108 @@ public class Helper {
 
     }
 
-   
-    } 
+    public static void llenarTablaPersona(JTable tabla, String ruta) {
+        DefaultTableModel tm;
 
-      
+        int numfilas;
+
+        ArrayList<Persona> P = traerDatos(ruta);
+
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        numfilas = P.size();
+        tm.setRowCount(numfilas);
+
+        for (int i = 0; i < numfilas; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(P.get(i).getCedula(), i, 1);
+            tabla.setValueAt(P.get(i).getNombre(), i, 2);
+            tabla.setValueAt(P.get(i).getApellido(), i, 3);
+            tabla.setValueAt(P.get(i).getEdad(), i, 4);
+            tabla.setValueAt(P.get(i).getSexo(), i, 5);
+        }
+    }
+
+    public static void llenarTablaPersona(JTable tabla, ArrayList<Persona> P) {
+        DefaultTableModel tm;
+        int nf;
+        tm = (DefaultTableModel) tabla.getModel();
+        limpiadoTabla(tabla);
+        nf = P.size();
+        tm.setRowCount(nf);
+        for (int i = 0; i < nf; i++) {
+            tabla.setValueAt(i + 1, i, 0);
+            tabla.setValueAt(P.get(i).getCedula(), i, 1);
+            tabla.setValueAt(P.get(i).getNombre(), i, 2);
+            tabla.setValueAt(P.get(i).getApellido(), i, 3);
+            tabla.setValueAt(P.get(i).getEdad(), i, 4);
+            tabla.setValueAt(P.get(i).getSexo(), i, 5);
+        }
+
+    }
+
+    public static boolean buscarPersonaPorCedula(String cedula, String ruta) {
+        ArrayList<Persona> P = traerDatos(ruta);
+        for (int i = 0; i < P.size(); i++) {
+            if (P.get(i).getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Persona traerPersonaCedula(String cedula, String ruta) {
+        ArrayList<Persona> P = traerDatos(ruta);
+        for (int i = 0; i < P.size(); i++) {
+            if (P.get(i).getCedula().equals(cedula)) {
+                return P.get(i);
+            }
+
+        }
+        return null;
+    }
+
+    public static ArrayList<Persona> modificarPersona(String ruta, String cedula, String nombre, String apellido, String edad, String sexo) {
+        ArrayList<Persona> personas = traerDatos(ruta);
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getCedula().equals(cedula)) {
+                personas.get(i).setNombre(nombre);
+                personas.get(i).setApellido(apellido);
+                personas.get(i).setEdad(edad);
+                personas.get(i).setSexo(sexo);
+
+                return personas;
+            }
+
+        }
+        return null;
+    }
+
+    public static ArrayList<Persona> actualizarPersona(String ruta, String cedula, String nombre, String apellido, String edad, String sexo) {
+        ArrayList<Persona> P = traerDatos(ruta);
+        for (int i = 0; i < P.size(); i++) {
+            if (P.get(i).getCedula().equals(cedula)) {
+                P.get(i).setNombre(nombre);
+                P.get(i).setApellido(apellido);
+                P.get(i).setEdad(edad);
+                P.get(i).setSexo(sexo);
+
+                i = P.size();
+            }
+        }
+        return P;
+    }
+
+    public static void listadoSexo_Persona(JTable tabla, String ruta, String sexo) {
+        ArrayList<Persona> personas = traerDatos(ruta);
+        ArrayList<Persona> yogui = new ArrayList();
+        for (int i = 0; i < personas.size(); i++) {
+            if (personas.get(i).getSexo().equals(sexo)) {
+                personas.add(personas.get(i));
+            }
+
+        }
+        llenarTablaPersona(tabla, yogui); 
+
+    }
+}

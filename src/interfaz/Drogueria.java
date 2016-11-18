@@ -46,6 +46,11 @@ public class Drogueria extends javax.swing.JFrame {
         mnListadoGenerico_Comercial = new javax.swing.JCheckBoxMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnCantidadDeMedicamentos = new javax.swing.JCheckBoxMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        mnIngresarDatosPersonas = new javax.swing.JCheckBoxMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenu5 = new javax.swing.JMenu();
+        mnListadoCompletoPersonas = new javax.swing.JCheckBoxMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mnSalir = new javax.swing.JMenuItem();
         mnRetorno = new javax.swing.JCheckBoxMenuItem();
@@ -131,6 +136,38 @@ public class Drogueria extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu4.setText("Menu Secundario");
+        jMenu4.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
+
+        mnIngresarDatosPersonas.setFont(new java.awt.Font("Segoe UI Light", 2, 18)); // NOI18N
+        mnIngresarDatosPersonas.setSelected(true);
+        mnIngresarDatosPersonas.setText("IngresarDatosPersona");
+        mnIngresarDatosPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIngresarDatosPersonasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnIngresarDatosPersonas);
+        jMenu4.add(jSeparator5);
+
+        jMenu5.setForeground(new java.awt.Color(255, 0, 51));
+        jMenu5.setText("Reportes");
+        jMenu5.setFont(new java.awt.Font("Segoe UI Light", 2, 18)); // NOI18N
+
+        mnListadoCompletoPersonas.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        mnListadoCompletoPersonas.setSelected(true);
+        mnListadoCompletoPersonas.setText("Listado Completo");
+        mnListadoCompletoPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnListadoCompletoPersonasActionPerformed(evt);
+            }
+        });
+        jMenu5.add(mnListadoCompletoPersonas);
+
+        jMenu4.add(jMenu5);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu3.setForeground(new java.awt.Color(255, 153, 0));
         jMenu3.setText("Opciones");
         jMenu3.setFont(new java.awt.Font("Serif", 2, 24)); // NOI18N
@@ -204,6 +241,16 @@ public class Drogueria extends javax.swing.JFrame {
         dispose();   
     }//GEN-LAST:event_mnRetornoActionPerformed
 
+    private void mnIngresarDatosPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIngresarDatosPersonasActionPerformed
+        IngresarDatosPersona Drogueria = new IngresarDatosPersona(this, true);
+        Drogueria.setVisible(true);  
+    }//GEN-LAST:event_mnIngresarDatosPersonasActionPerformed
+
+    private void mnListadoCompletoPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListadoCompletoPersonasActionPerformed
+        ListadoCompletoPersonas lc = new ListadoCompletoPersonas(this, true);
+        lc.setVisible(true);
+    }//GEN-LAST:event_mnListadoCompletoPersonasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -245,15 +292,20 @@ public class Drogueria extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JCheckBoxMenuItem mnCantidadDeMedicamentos;
     private javax.swing.JMenuItem mnIngresarDatos;
+    private javax.swing.JCheckBoxMenuItem mnIngresarDatosPersonas;
     private javax.swing.JCheckBoxMenuItem mnListadoCompleto;
+    private javax.swing.JCheckBoxMenuItem mnListadoCompletoPersonas;
     private javax.swing.JCheckBoxMenuItem mnListadoGenerico_Comercial;
     private javax.swing.JCheckBoxMenuItem mnRetorno;
     private javax.swing.JMenuItem mnSalir;
