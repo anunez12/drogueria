@@ -114,8 +114,26 @@ public class IngresarDatosPersona extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel5.setText("Sexo");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 50, 30));
+
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 34, 145, -1));
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 72, 145, -1));
+
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtApellidoKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 110, 145, -1));
 
         cmbEdad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18 años ", "19 años ", "20 años ", "21 años ", "22 años", "23 años", "24 años ", "25 años ", "26 años ", "27 años ", "28 años", "29 años", "30 años", "31 años", "32 años", "33 años ", "34 años ", "35 años", "36 años ", "37 años ", "38 años ", "39 años ", "40 años", "41 años", "42 años", "43 años", "44 años", "45 años", "46 años", "47 años", "48 años", "49 años", "50 años", "51 años", "52 años", "53 años", "54 años", "55 años", "56 años", "57 años", "58 años", "59 años", "60 años", "61 años", "62 años", "63 años", "64 años", "65 años", "66 años", "67 años", "68 años ", "69 años", "70 años", "71 años", "72 años", "73 años", "74 años ", "75 años ", "76 años", "77 años", "78 años", "79 años", "80 años", "81 años", "82 años", "83 años", "84 años", "85 años ", "86 años ", "87 años", "88 años", "89 años", "90 años", "91 años", "92 años", "93 años", "94 años", "95 años", "96 años", "97 años ", "98 años", "99 años ", "100 años" }));
@@ -341,6 +359,30 @@ public class IngresarDatosPersona extends javax.swing.JDialog {
         cmbSexo.setSelectedItem(p.getSexo());
         aux = 1;    
     }//GEN-LAST:event_tblMostrarDatosMouseClicked
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+         char c = evt.getKeyChar();
+        if (Character.isLetter(c) || Character.isSpaceChar(c) || !Character.isDigit(c)) {
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isLetter(c) || Character.isSpaceChar(c) || Character.isDigit(c)) {
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+       char c = evt.getKeyChar();
+        if (!Character.isLetter(c) || Character.isSpaceChar(c) || Character.isDigit(c)) {
+            getToolkit();
+            evt.consume();
+        }              
+    }//GEN-LAST:event_txtApellidoKeyTyped
 
     public void limpiar() {
         txtCedula.setText("");

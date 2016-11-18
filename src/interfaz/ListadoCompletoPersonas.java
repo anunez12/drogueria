@@ -6,7 +6,7 @@
 package interfaz;
 
 import clases.Helper;
-
+   
 /**
  *
  * @author SP
@@ -21,7 +21,7 @@ public class ListadoCompletoPersonas extends javax.swing.JDialog {
     public ListadoCompletoPersonas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        ruta = "src/serializar/serializacion_persona.txt";
+        ruta = "src/serializar/persona.txt";
         Helper.llenarTablaPersona(tblMostrarDatos, ruta);
     }
 

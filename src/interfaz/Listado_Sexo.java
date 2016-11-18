@@ -20,7 +20,7 @@ public class Listado_Sexo extends javax.swing.JDialog {
     public Listado_Sexo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents(); 
-        ruta = "src/serializar/persona.txt";   
+        ruta = "src/serializar/persona.txt";        
     }      
 
     /**
